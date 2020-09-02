@@ -29,5 +29,8 @@ module.exports = {
         inject: true,
         template: 'public/index.html',
     })
-  ]
+  ],
+  resolve: {
+    modules: ['src/brands/default', 'node_modules']
+  }
 };
