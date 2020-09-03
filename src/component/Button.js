@@ -5,7 +5,7 @@ import "Button.css";
 export default class Button extends React.Component {
   static propTypes = {
     name: PropTypes.string,
-    orange: PropTypes.bool,
+    primary: PropTypes.bool,
     wide: PropTypes.bool,
     clickHandler: PropTypes.func,
   };
@@ -17,7 +17,7 @@ export default class Button extends React.Component {
   render() {
     const className = [
       "component-button",
-      this.props.orange ? "orange" : "",
+      this.props.primary ? "primary" : "",
       this.props.wide ? "wide" : "",
     ];
 
