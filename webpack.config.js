@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const brandPath = `src/brands/${process.env.APP_BRAND}`;
 
 module.exports = {
   mode: 'production',
@@ -31,6 +32,6 @@ module.exports = {
     })
   ],
   resolve: {
-    modules: ['src/brands/default', 'node_modules']
+    modules: [brandPath, 'src/brands/default', 'node_modules']
   }
 };
