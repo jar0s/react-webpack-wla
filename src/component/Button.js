@@ -5,6 +5,7 @@ import "Button.css";
 export default class Button extends React.Component {
   static propTypes = {
     name: PropTypes.string,
+    displayName: PropTypes.string,
     primary: PropTypes.bool,
     wide: PropTypes.bool,
     clickHandler: PropTypes.func,
@@ -23,7 +24,7 @@ export default class Button extends React.Component {
 
     return (
       <div className={className.join(" ").trim()}>
-        <button onClick={this.handleClick}>{this.props.name}</button>
+        <button onClick={this.handleClick}>{this.props.displayName ? this.props.displayName : this.props.name}</button>
       </div>
     );
   }

@@ -7,6 +7,7 @@ import "ButtonPanel.css";
 export default class ButtonPanel extends React.Component {
   static propTypes = {
     clickHandler: PropTypes.func,
+    buttonsMatrix: PropTypes.array
   };
 
   handleClick = buttonName => {
@@ -14,37 +15,24 @@ export default class ButtonPanel extends React.Component {
   };
 
   render() {
+    let matrix = this.props.buttonsMatrix;
+    let clickHandler = this.handleClick;
+
     return (
       <div className="component-button-panel">
-        <div>
-          <Button name="AC" clickHandler={this.handleClick} />
-          <Button name="+/-" clickHandler={this.handleClick} />
-          <Button name="%" clickHandler={this.handleClick} />
-          <Button name="÷" clickHandler={this.handleClick} primary />
-        </div>
-        <div>
-          <Button name="7" clickHandler={this.handleClick} />
-          <Button name="8" clickHandler={this.handleClick} />
-          <Button name="9" clickHandler={this.handleClick} />
-          <Button name="x" clickHandler={this.handleClick} primary />
-        </div>
-        <div>
-          <Button name="4" clickHandler={this.handleClick} />
-          <Button name="5" clickHandler={this.handleClick} />
-          <Button name="6" clickHandler={this.handleClick} />
-          <Button name="-" clickHandler={this.handleClick} primary />
-        </div>
-        <div>
-          <Button name="1" clickHandler={this.handleClick} />
-          <Button name="2" clickHandler={this.handleClick} />
-          <Button name="3" clickHandler={this.handleClick} />
-          <Button name="+" clickHandler={this.handleClick} primary />
-        </div>
-        <div>
-          <Button name="0" clickHandler={this.handleClick} wide />
-          <Button name="." clickHandler={this.handleClick} />
-          <Button name="=" clickHandler={this.handleClick} primary />
-        </div>
+         {matrix.map((row, index) => {
+              return <div key={index}>
+                {row.map((button, index) => {
+                    return <Button key={index}
+                      name={button.name}
+                      displayName={button.displayName || ''}
+                      clickHandler={clickHandler}
+                      primary={!!button.primary} 
+                      wide={!!button.wide}
+                    />
+                })}
+              </div>;
+          })}
       </div>
     );
   }
