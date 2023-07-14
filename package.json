@@ -2,6 +2,10 @@
   "name": "react-webpack-wla",
   "version": "1.0.0",
   "private": true,
+  "funding": {
+    "type" : "BuyMeACoffee",
+    "url" : "https://www.buymeacoffee.com/jar0s"
+  },
   "scripts": {
     "build": "webpack"
   },
